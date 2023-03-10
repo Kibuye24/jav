@@ -23,7 +23,10 @@ const About = () => {
           <Typography variant="h2" align="center" gutterBottom>
             About Us
           </Typography>
-          <Box sx={{ bgcolor: "#F6F6F6", marginBottom: 10, padding: 4 }}>
+          <Box
+            sx={{ bgcolor: "#fcfcfc", marginBottom: 10, padding: 4 }}
+            className="rounded-lg shadow-lg"
+          >
             <OurStory
               imageSrc={founder1}
               title="Our Story"
@@ -66,27 +69,33 @@ const About = () => {
             </Typography>
             <Grid container spacing={6} alignItems="center">
               <Grid item xs={12} md={4}>
-                <Box className="bg-white p-6 shadow-md">
-                  <img src={founder1} alt="Founder 1" />
-                  <Typography variant="subtitle1">Keith Emali</Typography>
+                <Box className="bg-white p-6 shadow-lg rounded-lg">
+                  <img src={founder1} alt="Founder 1" className="mb-4" />
+                  <Typography gutterBottom variant="subtitle1">
+                    Keith Emali
+                  </Typography>
                   <Typography variant="subtitle1" fontWeight={600}>
                     Co-Founder & Chairperson
                   </Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Box className="bg-white p-6 shadow-md">
-                  <img src={founder2} alt="Founder 2" />
-                  <Typography variant="subtitle1">Lucy Wairimu</Typography>
+                <Box className="bg-white p-6 shadow-lg rounded-lg">
+                  <img src={founder2} alt="Founder 2" className="mb-4" />
+                  <Typography gutterBottom variant="subtitle1">
+                    Lucy Wairimu
+                  </Typography>
                   <Typography variant="subtitle1" fontWeight={600}>
                     Co-Founder & Vice Chairperson
                   </Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Box className="bg-white p-6 shadow-md">
-                  <img src={founder2} alt="Founder 2" />
-                  <Typography variant="subtitle1">Pamela Kathigani</Typography>
+                <Box className="bg-white p-6 shadow-lg rounded-lg">
+                  <img src={founder2} alt="Founder 2" className="mb-4" />
+                  <Typography gutterBottom variant="subtitle1">
+                    Pamela Kathigani
+                  </Typography>
                   <Typography variant="subtitle1" fontWeight={600}>
                     Co-Founder & Vice Chairperson
                   </Typography>
@@ -96,9 +105,9 @@ const About = () => {
           </Box>
 
           {/*Members Sections */}
-          <Box py={10}>
+          <Box py={10} px={4} className="rounded-lg shadow-lg">
             <Typography variant="h4" align="center" gutterBottom>
-              Members
+              Board
             </Typography>
             <Grid container spacing={6} alignItems="center">
               <Grid item xs={12} md={3}>
@@ -107,8 +116,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Eddy Ratemo</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Eddy Ratemo
+                </Typography>
+                <Typography variant="subtitle1" align="center" fontWeight={600}>
                   Events
                 </Typography>
               </Grid>
@@ -118,8 +129,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Feizal Barasa</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Feizal Barasa
+                </Typography>
+                <Typography variant="subtitle1" fontWeight={600} align="center">
                   Community Outreach
                 </Typography>
               </Grid>
@@ -129,8 +142,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Hillary Mwangi</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Hillary Mwangi
+                </Typography>
+                <Typography variant="subtitle1" fontWeight={600} align="center">
                   Graphics Design
                 </Typography>
               </Grid>
@@ -140,8 +155,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Jean Riuki</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Jean Riuki
+                </Typography>
+                <Typography variant="subtitle1" fontWeight={600} align="center">
                   Treasurer
                 </Typography>
               </Grid>
@@ -151,8 +168,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Kyambi Mutua</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Kyambi Mutua
+                </Typography>
+                <Typography variant="subtitle1" fontWeight={600} align="center">
                   Social Media
                 </Typography>
               </Grid>
@@ -162,8 +181,10 @@ const About = () => {
                   alt="Member 1"
                   className="w-48 h-48 rounded-full mb-2"
                 />
-                <Typography variant="subtitle1">Oscar Aluso</Typography>
-                <Typography variant="subtitle1" fontWeight={600}>
+                <Typography variant="subtitle1" align="center">
+                  Oscar Aluso
+                </Typography>
+                <Typography variant="subtitle1" fontWeight={600} align="center">
                   Planning
                 </Typography>
               </Grid>
@@ -171,7 +192,10 @@ const About = () => {
           </Box>
         </Container>
       </Box>
-      <Box sx={{ bgcolor: "#F6F6F6", marginBottom: 10, padding: 4 }}>
+      <Box
+        sx={{ bgcolor: "#fcfcfc", marginBottom: 10, padding: 4 }}
+        className="rounded-lg shadow-lg"
+      >
         <Objectives
           imageSrc={founder1}
           title="Our Objectives"

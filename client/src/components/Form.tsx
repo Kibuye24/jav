@@ -1,15 +1,49 @@
+import { useState } from "react";
+import Axios from "axios";
 import {
   Box,
-  Typography,
   Grid,
   FormControl,
   TextField,
   FormHelperText,
   Button,
 } from "@mui/material";
-import React from "react";
+
+interface FormData {
+  firstName: String;
+  lastName: String;
+  email: String;
+  phone: String;
+  city: String;
+  skills: String;
+  availability: String;
+  emergencyContact: String;
+}
 
 const Form = () => {
+  const { formData, setFormData } = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    skills: "",
+    availability: "",
+    emergencyContact: "",
+  });
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      Axios.post("http://127.0.0.1:8080/api/v1/members", formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }).then((response) => console.log(response));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <form
       style={{
@@ -20,6 +54,8 @@ const Form = () => {
         gap: "20px",
       }}
       className="rounded-lg shadow-lg p-8 mb-8"
+      method="POST"
+      onSubmit={handleSubmit}
     >
       <Box>
         <FormControl sx={{ flex: 1, flexDirection: "row", width: "100%" }}>
@@ -37,12 +73,14 @@ const Form = () => {
               </FormHelperText>
               <TextField
                 required
-                id="outlined-basic"
                 color="info"
                 variant="outlined"
                 sx={{
                   width: "95%",
                 }}
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
               />
             </Grid>
             <Grid item direction="column" xs={12} sm={6}>
@@ -59,9 +97,11 @@ const Form = () => {
               <TextField
                 fullWidth
                 required
-                id="outlined-basic"
                 color="info"
                 variant="outlined"
+                onChange={(e) =>
+                  setFormData({ ...formData, lastName: e.target.value })
+                }
               />
             </Grid>
           </Grid>
@@ -79,7 +119,12 @@ const Form = () => {
         >
           Email
         </FormHelperText>
-        <TextField fullWidth required color="info" variant="outlined" />
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        />
       </FormControl>
 
       <FormControl>
@@ -96,9 +141,8 @@ const Form = () => {
         <TextField
           fullWidth
           required
-          color="info"
           variant="outlined"
-          type="number"
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
         />
       </FormControl>
       <FormControl>
@@ -110,9 +154,14 @@ const Form = () => {
             color: "#11142d",
           }}
         >
-          Address
+          City
         </FormHelperText>
-        <TextField fullWidth required color="info" variant="outlined" />
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+        />
       </FormControl>
       <FormControl>
         <FormHelperText
@@ -125,7 +174,12 @@ const Form = () => {
         >
           Skills
         </FormHelperText>
-        <TextField fullWidth required color="info" variant="outlined" />
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          onChange={(e) => setFormData({ ...formData, skills: e.target.value })}
+        />
       </FormControl>
       <FormControl>
         <FormHelperText
@@ -138,7 +192,14 @@ const Form = () => {
         >
           Availability
         </FormHelperText>
-        <TextField fullWidth required color="info" variant="outlined" />
+        <TextField
+          fullWidth
+          required
+          onChange={(e) =>
+            setFormData({ ...formData, availability: e.target.value })
+          }
+          variant="outlined"
+        />
       </FormControl>
       <FormControl>
         <FormHelperText
@@ -151,9 +212,18 @@ const Form = () => {
         >
           Emergency Contact
         </FormHelperText>
-        <TextField fullWidth required color="info" variant="outlined" />
+        <TextField
+          fullWidth
+          required
+          variant="outlined"
+          onChange={(e) =>
+            setFormData({ ...formData, emergencyContact: e.target.value })
+          }
+        />
       </FormControl>
-      <Button variant="contained">Submit</Button>
+      <Button variant="contained" type="submit">
+        Submit
+      </Button>
     </form>
   );
 };

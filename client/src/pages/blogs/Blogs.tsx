@@ -1,5 +1,4 @@
-import { Typography, Box, Button, Grid } from "@mui/material";
-import { Navbar, Footer } from "../../components";
+import { Typography, Box, Button, Pagination } from "@mui/material";
 import blogImage from "../../assets/support.jpg";
 import PreviewCard from "../../components/blog/PreviewCard";
 import { useQuery } from "@tanstack/react-query";
@@ -94,6 +93,7 @@ const Blogs = () => {
             );
           })}
         </Box>
+        <Pagination count={5} variant="outlined" color="primary" />
       </Box>
     </Layout>
   );

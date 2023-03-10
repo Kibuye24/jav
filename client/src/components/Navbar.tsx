@@ -30,27 +30,52 @@ function Navbar() {
         sx={{ display: "flex", alignItems: "center", mx: "auto" }}
       >
         <Button className="mx-4" sx={{ mx: 1 }}>
-          <NavLink to="/" className="text-white font-bold">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-black font-bold" : "text-white font-bold"
+            }
+          >
             Home
           </NavLink>
         </Button>
         <Button className="mx-4 text-white">
-          <NavLink to="/about" className="text-white font-bold">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "text-black font-bold" : "text-white font-bold"
+            }
+          >
             About Us
           </NavLink>
         </Button>
         <Button className="mx-4">
-          <NavLink to="/blogs" className="text-white font-bold">
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              isActive ? "text-black font-bold" : "text-white font-bold"
+            }
+          >
             Blogs
           </NavLink>
         </Button>
         <Button className="mx-4">
-          <NavLink to="/gallery" className="text-white font-bold">
+          <NavLink
+            to="/gallery"
+            className={({ isActive }) =>
+              isActive ? "text-black font-bold" : "text-white font-bold"
+            }
+          >
             Gallery
           </NavLink>
         </Button>
         <Button className="mx-4">
-          <NavLink to="/join" className="text-white font-bold">
+          <NavLink
+            to="/join"
+            className={({ isActive }) =>
+              isActive ? "text-black font-bold" : "text-white font-bold"
+            }
+          >
             Join Us
           </NavLink>
         </Button>
