@@ -1,6 +1,7 @@
-import { Box, Grid, IconButton, Link, Typography } from "@mui/material";
+import { Box, Grid, IconButton, Typography } from "@mui/material";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import logo from "../assets/logo.jpeg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,6 +12,7 @@ function Footer() {
         backgroundColor: "#fcfcfc",
         height: 200,
       }}
+      className="shadow-lg"
     >
       <Grid
         container
@@ -55,25 +57,13 @@ function Footer() {
                 alignItems: "center",
               }}
             >
-              <Link
-                href="/"
-                color="inherit"
-                className="text-black no-underline"
-              >
+              <Link to="/" color="inherit" className="text-black no-underline">
                 Home
               </Link>
-              <Link
-                href="/faqs"
-                color="inherit"
-                className="text-black no-underline"
-              >
+              <Link to="/faqs" className="text-black no-underline">
                 FAQ
               </Link>
-              <Link
-                href="/contact"
-                className="text-black no-underline"
-                color="inherit"
-              >
+              <Link to="/contact" className="text-black no-underline">
                 Contact
               </Link>
             </Grid>

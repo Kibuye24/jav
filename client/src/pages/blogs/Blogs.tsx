@@ -26,11 +26,12 @@ const Blogs = () => {
           Our Blogs
         </Typography>
         <Box
-          bgcolor="#efefef"
+          bgcolor="#fcfcfc"
           width="full"
           sx={{ display: "flex", flexDirection: "row" }}
           gap={4}
           p={4}
+          className="shadow-lg rounded-lg"
         >
           <Box
             sx={{ background: "linear-gradient(to right, #2BC0E4, #20C997)" }}
@@ -78,16 +79,16 @@ const Blogs = () => {
           Latest Blogs
         </Typography>
         <Box
-          width="full"
-          sx={{ display: "flex", flexDirection: "row" }}
+          bgcolor="#fff"
           gap={4}
+          className="w-full flex flex-wrap rounded-lg shadow-lg mb-8"
         >
           {data.map((blog: any) => {
             return (
               <PreviewCard
                 title={blog.title}
                 description={blog.description}
-                date={blog.date}
+                date={blog.createdAt}
                 blogId={blog._id}
               />
             );

@@ -1,13 +1,11 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ErrorPage, Home, About, Gallery, Join } from "./pages";
-import { Blogs, BlogsShow, BlogsCreate } from "./pages/blogs/index";
+import { ErrorPage, Home, About, Gallery, Join, Faq, Contact } from "./pages";
+import { Blogs, BlogsCreate, ShowBlog } from "./pages/blogs/index";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
 function App() {
-  const { _id } = useParams();
-
   const queryClient = new QueryClient();
   const Router = createBrowserRouter([
     {
@@ -22,16 +20,15 @@ function App() {
     {
       path: "/blogs",
       element: <Blogs />,
-      children: [
-        {
-          path: `/blogs/${_id}`,
-          element: <BlogsShow />,
-        },
-        {
-          path: "blogs/create",
-          element: <BlogsCreate />,
-        },
-      ],
+    },
+
+    {
+      path: `/blogs/:id`,
+      element: <ShowBlog />,
+    },
+    {
+      path: "blogs/create",
+      element: <BlogsCreate />,
     },
     {
       path: "/gallery",
@@ -40,6 +37,14 @@ function App() {
     {
       path: "/join",
       element: <Join />,
+    },
+    {
+      path: "/faqs",
+      element: <Faq />,
+    },
+    {
+      path: "/contact",
+      element: <Contact />,
     },
   ]);
 

@@ -4,7 +4,7 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div>Blogs Show Goes Here</div>
+      <div>Blogs Create Goes Here</div>
       <Footer />
     </>
   );

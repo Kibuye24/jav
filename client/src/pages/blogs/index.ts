@@ -1,5 +1,5 @@
 import Blogs from "./Blogs";
-import BlogsShow from "./show";
+import ShowBlog from "./show";
 import BlogsCreate from "./create";
 
-export { Blogs, BlogsShow, BlogsCreate };
+export { Blogs, ShowBlog, BlogsCreate };
