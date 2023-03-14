@@ -6,14 +6,12 @@ import logo from "../assets/logo.jpeg";
 function Navbar() {
   return (
     <Box
-      className="flex justify-between py-4 text-white"
+      className="flex justify-between py-2 text-white"
       style={{
         background: "linear-gradient(to right, #2BC0E4, #20C997)",
         display: "flex",
         justifyContent: "justify-between",
         color: "#fff",
-        paddingTop: "10px",
-        paddingBottom: "10px",
         paddingLeft: "3%",
         paddingRight: "3%",
       }}
@@ -22,11 +20,11 @@ function Navbar() {
         <img
           src={logo}
           alt="logo"
-          className="w-20 h-20 ml-6 object-cover rounded-full"
+          className="w-14 h-14 ml-6 object-cover rounded-full"
         />
       </Grid>
       <Box
-        className="flex items-center mx-auto"
+        className="flex items-center mx-auto sm:hidden"
         sx={{ display: "flex", alignItems: "center", mx: "auto" }}
       >
         <Button className="mx-4" sx={{ mx: 1 }}>
@@ -43,7 +41,7 @@ function Navbar() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              isActive ? "text-black font-bold" : "text-white font-bold"
+              isActive ? "text-black font-bold " : "text-white font-bold"
             }
           >
             About Us
@@ -53,7 +51,7 @@ function Navbar() {
           <NavLink
             to="/blogs"
             className={({ isActive }) =>
-              isActive ? "text-black font-bold" : "text-white font-bold"
+              isActive ? "text-black font-bold " : "text-white font-bold"
             }
           >
             Blogs
@@ -63,7 +61,7 @@ function Navbar() {
           <NavLink
             to="/gallery"
             className={({ isActive }) =>
-              isActive ? "text-black font-bold" : "text-white font-bold"
+              isActive ? "text-black font-bold " : "text-white font-bold"
             }
           >
             Gallery
@@ -81,13 +79,16 @@ function Navbar() {
         </Button>
       </Box>
       <Grid item sx={{ display: "flex", alingItems: "justify-end" }}>
-        <IconButton href="#">
+        <IconButton href="#" target="_blank">
           <Facebook className="text-blue-600" />
         </IconButton>
-        <IconButton href="#">
+        <IconButton href="https://twitter.com/JustaVision_KE" target="_blank">
           <Twitter className="text-sky-500" />
         </IconButton>
-        <IconButton href="#">
+        <IconButton
+          href="https://www.instagram.com/just.a.vision_/"
+          target="_blank"
+        >
           <Instagram className="text-red-600" />
         </IconButton>
       </Grid>

@@ -18,7 +18,7 @@ const PreviewCard = ({
   return (
     <Box
       bgcolor="#fcfcfc"
-      className="w-96 p-4 mx-8 my-6 rounded-lg justify-evenly leading-loose shadow-lg"
+      className="w-64 p-4 my-6 rounded-lg justify-evenly leading-loose shadow-lg"
     >
       <img src={blogImage} alt="blog-img" />
       <Typography gutterBottom fontWeight={500} mt={2}>
@@ -27,7 +27,9 @@ const PreviewCard = ({
       <Typography gutterBottom fontWeight={800} fontSize={20}>
         {title}
       </Typography>
-      <Typography mb={2}>{description}</Typography>
+      <Typography mb={2} className="text-clip overflow-hidden">
+        {description}
+      </Typography>
       <Button variant="outlined" color="success">
         <Link to={`${blogId}`}>Read more...</Link>
       </Button>

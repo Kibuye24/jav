@@ -2,69 +2,57 @@ import { Box, Typography, Stack, Button } from "@mui/material";
 import backgroundImage from "../../assets/support.jpg";
 const Support = () => {
   return (
-    <Box
-      sx={{
-        height: 700,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Stack direction="row">
-        <Box
-          ml={20}
-          mt={20}
+    <Box className="flex flex-row flex-wrap justify-evenly space-x-8 py-8 space-y-4 md:space-y-0">
+      <Box
+        sx={{
+          height: 500,
+          width: 500,
+          backgroundImage: `url(${backgroundImage})`,
+        }}
+        className="bg-cover bg-center md:w-[500px] w-[90%]"
+      ></Box>
+      <Box
+        bgcolor="#2BC0E4"
+        sx={{
+          width: 500,
+        }}
+        className="rounded-lg"
+      >
+        <Typography fontSize={24} fontWeight={700} color="#fcfcfc" p={2}>
+          We Appreciate Your Support!
+        </Typography>
+        <Typography variant="body2" fontWeight={500} color="#fcfcfc" px={2}>
+          At Just a Vision, we believe that every child deserves a bright and
+          happy future. We work tirelessly to provide children in need with the
+          support, resources, and opportunities they need to thrive. We are
+          deeply grateful for the support of our community and donors who share
+          our passion for making a difference in the lives of children. Your
+          generosity helps us to continue our important work, providing
+          essential services such as education, healthcare, and shelter to
+          children who need it most. Whether you choose to make a financial
+          contribution, volunteer your time and skills, or spread the word about
+          our organization, every effort helps us to make a positive impact on
+          the lives of children in need. We appreciate every donation, no matter
+          the size, and we value the support of every individual who contributes
+          to our cause. At Just a Vision, we believe that together, we can
+          create a better world for all children. We thank you for your ongoing
+          support and for helping us to make a meaningful difference in the
+          lives of children who need it most.
+        </Typography>
+        <Button
+          variant="outlined"
+          href="/join"
+          size="large"
+          color="inherit"
           sx={{
-            height: 500,
-            width: 500,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundImage: `url(${backgroundImage})`,
+            marginTop: 4,
+            marginLeft: 2,
+            color: "#fff",
           }}
-        ></Box>
-        <Box
-          ml={18}
-          mt={20}
-          bgcolor="#2BC0E4"
-          sx={{
-            height: 500,
-            width: 500,
-          }}
-          className="rounded-lg"
         >
-          <Typography fontSize={28} fontWeight={700} color="#fcfcfc" p={2}>
-            Vision Statement and Objectives.
-          </Typography>
-          <Typography fontSize={18} fontWeight={500} color="#fcfcfc" p={2}>
-            Our mission at Just a vission is to create an environment whereby
-            children have the opportunity to live safe, healthy, and fullfilling
-            lives. You can support us by:
-          </Typography>
-          <ol className="text-white px-4">
-            <li>
-              Provide emotional support and companionship to children living in
-              homes or institutions
-            </li>
-            <li>Organize fun and educational activities for children</li>
-            <li>Provide material and financial support</li>
-            <li>Advocate for children's rights</li>
-            <li>Work with local authorities and organizations</li>
-            <li>Recruit and train volunteers</li>
-          </ol>
-          <Button
-            variant="outlined"
-            href="/join"
-            size="large"
-            color="inherit"
-            sx={{
-              marginTop: 4,
-              marginLeft: 2,
-              color: "#fff",
-            }}
-          >
-            Join Us
-          </Button>
-        </Box>
-      </Stack>
+          Join Us
+        </Button>
+      </Box>
     </Box>
   );
 };

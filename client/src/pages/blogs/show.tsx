@@ -5,7 +5,7 @@ import { Typography, Box, Grid } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
 import blogImage from "../../assets/support.jpg";
 
-const ShowBlog = () => {
+const ShowBlog = (): JSX.Element => {
   const { id } = useParams();
 
   const { data, isLoading, error } = useQuery({

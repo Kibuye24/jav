@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Box
       sx={{
-        height: 700,
+        height: 500,
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -13,19 +13,19 @@ const Header = () => {
     >
       <Stack>
         <Box
-          ml={20}
-          mt={14}
           bgcolor="#20C997"
-          sx={{
-            height: 300,
-            width: 700,
-          }}
-          className="rounded-lg"
+          className="rounded-lg shadow-lg md:mx-10 mx-auto mt-10 md:w-[500px] w-[90%] justify-center"
         >
-          <Typography fontSize={28} fontWeight={700} color="#fcfcfc" p={2}>
+          <Typography fontSize={24} fontWeight={700} color="#fcfcfc" p={2}>
             We are a social business.
           </Typography>
-          <Typography fontSize={18} fontWeight={500} color="#fcfcfc" p={2}>
+          <Typography
+            fontSize={18}
+            fontWeight={500}
+            color="#fcfcfc"
+            px={2}
+            pb={2}
+          >
             Our mission at Just a vission is to improve the lives of vulnerable
             children in Kenya through home visits and community outreach.
           </Typography>
@@ -35,9 +35,9 @@ const Header = () => {
             size="large"
             color="inherit"
             sx={{
-              marginTop: 4,
               marginLeft: 2,
               color: "#fff",
+              marginBottom: 4,
             }}
           >
             Learn About Us

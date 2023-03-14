@@ -1,11 +1,12 @@
-import { Typography, Box, Button, Pagination } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import blogImage from "../../assets/support.jpg";
 import PreviewCard from "../../components/blog/PreviewCard";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import Layout from "../../layout/Layout";
+import { Pagination } from "../../components/index";
 
-const Blogs = () => {
+const Blogs = (): JSX.Element => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
@@ -30,7 +31,7 @@ const Blogs = () => {
           sx={{ display: "flex", flexDirection: "row" }}
           gap={4}
           p={4}
-          className="shadow-lg rounded-lg"
+          className="shadow-lg rounded-lg flex-wrap"
         >
           <Box
             sx={{ background: "linear-gradient(to right, #2BC0E4, #20C997)" }}
@@ -38,12 +39,12 @@ const Blogs = () => {
           >
             <Typography>Featured Blog</Typography>
           </Box>
-          <Box flex={1} flexDirection="column">
+          <Box flex={1}>
             <Typography>2nd March, 2023</Typography>
-            <Typography fontWeight={800} fontSize={48}>
+            <Typography fontWeight={800} fontSize={24} gutterBottom>
               All You need to Know About the Coming Pad Drive
             </Typography>
-            <Typography gutterBottom>
+            <Typography gutterBottom variant="body2">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
               mollitia, molestiae quas vel sint commodi repudiandae consequuntur
               voluptatum laborum numquam blanditiis harum quisquam eius sed odit
@@ -59,15 +60,7 @@ const Blogs = () => {
               Officiis iure rerum voluptates a cumque velit quibusdam sed amet
               tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat,
               temporibus enim commodi iusto libero magni deleniti quod quam
-              consequuntur! Commodi minima excepturi repudiandae velit hic
-              maxime doloremque. Quaerat provident commodi consectetur veniam
-              similique ad earum omnis ipsum saepe, voluptas, hic voluptates
-              pariatur est explicabo fugiat, dolorum eligendi quam cupiditate
-              excepturi mollitia maiores labore suscipit quas? Nulla, placeat.
-              Voluptatem quaerat non architecto ab laudantium modi minima sunt
-              esse temporibus sint culpa, recusandae aliquam numquam totam
-              ratione voluptas quod exercitationem fuga. Possimus quis earum
-              veniam quasi aliquam eligendi, placeat qui corporis.
+              consequuntur!
             </Typography>
             <Button variant="contained" color="info">
               Read more...
@@ -79,21 +72,20 @@ const Blogs = () => {
         </Typography>
         <Box
           bgcolor="#fff"
-          gap={4}
-          className="w-full flex flex-wrap rounded-lg shadow-lg mb-8"
+          className="flex flex-wrap rounded-lg shadow-lg mb-8 justify-evenly"
         >
-          {data.map((blog: any) => {
+          {data.results.map((blog: any) => {
             return (
               <PreviewCard
                 title={blog.title}
-                description={blog.description}
+                description={blog.description.slice(0, 99)}
                 date={blog.createdAt}
                 blogId={blog._id}
               />
             );
           })}
         </Box>
-        <Pagination count={5} variant="outlined" color="primary" />
+        <Pagination />
       </Box>
     </Layout>
   );

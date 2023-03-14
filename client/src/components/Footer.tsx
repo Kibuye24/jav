@@ -87,14 +87,20 @@ function Footer() {
               Connect
             </Typography>
           </Grid>
-          <Grid>
-            <IconButton href="#">
+          <Grid item sx={{ display: "flex", alingItems: "justify-end" }}>
+            <IconButton href="#" target="_blank">
               <Facebook className="text-blue-600" />
             </IconButton>
-            <IconButton href="#">
+            <IconButton
+              href="https://twitter.com/JustaVision_KE"
+              target="_blank"
+            >
               <Twitter className="text-sky-500" />
             </IconButton>
-            <IconButton href="#">
+            <IconButton
+              href="https://www.instagram.com/just.a.vision_/"
+              target="_blank"
+            >
               <Instagram className="text-red-600" />
             </IconButton>
           </Grid>

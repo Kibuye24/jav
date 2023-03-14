@@ -7,6 +7,8 @@ import {
   TextField,
   FormHelperText,
   Button,
+  Select,
+  MenuItem,
 } from "@mui/material";
 
 interface FormData {
@@ -44,6 +46,7 @@ const Form = () => {
       console.log(err);
     }
   };
+
   return (
     <form
       style={{
@@ -145,6 +148,7 @@ const Form = () => {
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
         />
       </FormControl>
+
       <FormControl>
         <FormHelperText
           sx={{
@@ -163,6 +167,7 @@ const Form = () => {
           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
         />
       </FormControl>
+
       <FormControl>
         <FormHelperText
           sx={{
@@ -181,6 +186,7 @@ const Form = () => {
           onChange={(e) => setFormData({ ...formData, skills: e.target.value })}
         />
       </FormControl>
+
       <FormControl>
         <FormHelperText
           sx={{
@@ -192,15 +198,13 @@ const Form = () => {
         >
           Availability
         </FormHelperText>
-        <TextField
-          fullWidth
-          required
-          onChange={(e) =>
-            setFormData({ ...formData, availability: e.target.value })
-          }
-          variant="outlined"
-        />
+        <Select>
+          <MenuItem value="monthly">Monthly</MenuItem>
+          <MenuItem value="weekly">Weekly</MenuItem>
+          <MenuItem value="visits">During Visits</MenuItem>
+        </Select>
       </FormControl>
+
       <FormControl>
         <FormHelperText
           sx={{
@@ -221,6 +225,7 @@ const Form = () => {
           }
         />
       </FormControl>
+
       <Button variant="contained" type="submit">
         Submit
       </Button>
