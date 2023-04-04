@@ -25,7 +25,7 @@ const createMember = async (req, res) => {
     email,
     phone,
     city,
-    skills,
+    // skills,
     availability,
     emergencyContact,
   } = req.body;
@@ -37,7 +37,7 @@ const createMember = async (req, res) => {
       email,
       phone,
       city,
-      skills,
+      // skills,
       availability,
       emergencyContact,
     });

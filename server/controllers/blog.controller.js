@@ -13,8 +13,8 @@ cloudinary.config({
 //Getting all blogs
 const getAllBlogs = async (req, res) => {
   const query = {};
-  const limit = parseInt(req.query.limit);
-  const page = parseInt(req.query.page);
+
+  const { page = 1, limit = 4 } = req.query;
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -25,19 +25,7 @@ const getAllBlogs = async (req, res) => {
     const count = await Blog.countDocuments(query);
     data.results = await Blog.find(query).skip(startIndex).limit(limit);
 
-    if (endIndex < count) {
-      data.next = {
-        page: page + 1,
-        limit: limit,
-      };
-    }
-
-    if (startIndex > 0) {
-      data.prev = {
-        page: page - 1,
-        limit: limit,
-      };
-    }
+    data.page = parseInt(page);
 
     data.totalPages = Math.ceil(count / limit);
 
@@ -49,6 +37,7 @@ const getAllBlogs = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 const createBlog = async (req, res) => {
   try {
     const { title, content, description, author } = req.body;
@@ -85,4 +74,20 @@ const getSingleBlog = async (req, res) => {
 const updateBlog = async (req, res) => {};
 const deleteBlog = async (req, res) => {};
 
-export { getAllBlogs, createBlog, updateBlog, deleteBlog, getSingleBlog };
+const recentBlogs = async (req, res) => {
+  try {
+    const recent = await Blog.find().sort({ createdAt: -1 }).limit(3);
+    res.status(200).json(recent);
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export {
+  getAllBlogs,
+  createBlog,
+  updateBlog,
+  deleteBlog,
+  getSingleBlog,
+  recentBlogs,
+};

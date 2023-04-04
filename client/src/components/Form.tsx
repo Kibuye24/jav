@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Axios from "axios";
 import {
   Box,
@@ -9,43 +8,79 @@ import {
   Button,
   Select,
   MenuItem,
+  Typography,
 } from "@mui/material";
+import { useForm, Resolver } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
-interface FormData {
-  firstName: String;
-  lastName: String;
-  email: String;
-  phone: String;
-  city: String;
-  skills: String;
-  availability: String;
-  emergencyContact: String;
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: number;
+  city: string;
+  availability: string;
+  emergencyContact: string;
 }
 
-const Form = () => {
-  const { formData, setFormData } = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    city: "",
-    skills: "",
-    availability: "",
-    emergencyContact: "",
-  });
+const resolver: Resolver<FormValues> = async (values) => {
+  return {
+    values: values.firstName ? values : {},
+    errors: !values.firstName
+      ? {
+          firstName: {
+            type: "required",
+            message: "This is required.",
+          },
+          lastName: {
+            type: "required",
+            message: "This is required.",
+          },
+          email: {
+            type: "required",
+            message: "This is required.",
+          },
+          phone: {
+            type: "required",
+            message: "This is required.",
+            maxLength: 10,
+          },
+          city: {
+            type: "required",
+            message: "This is required.",
+          },
+          availability: {
+            type: "required",
+            message: "This is required.",
+          },
+          emergencyContact: {
+            type: "required",
+            message: "This is required.",
+            maxLength: 10,
+          },
+        }
+      : {},
+  };
+};
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+const Form = () => {
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ resolver });
+  const onSubmit = handleSubmit((data) => {
     try {
-      Axios.post("http://127.0.0.1:8080/api/v1/members", formData, {
+      Axios.post("http://127.0.0.1:8080/api/v1/members", data, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-      }).then((response) => console.log(response));
+      }).then(navigate("/"));
     } catch (err) {
       console.log(err);
     }
-  };
+  });
 
   return (
     <form
@@ -58,7 +93,7 @@ const Form = () => {
       }}
       className="rounded-lg shadow-lg p-8 mb-8"
       method="POST"
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
     >
       <Box>
         <FormControl sx={{ flex: 1, flexDirection: "row", width: "100%" }}>
@@ -81,10 +116,11 @@ const Form = () => {
                 sx={{
                   width: "95%",
                 }}
-                onChange={(e) =>
-                  setFormData({ ...formData, firstName: e.target.value })
-                }
+                {...register("firstName")}
               />
+              {errors?.firstName && (
+                <Typography>{errors.firstName.message}</Typography>
+              )}
             </Grid>
             <Grid item direction="column" xs={12} sm={6}>
               <FormHelperText
@@ -102,10 +138,11 @@ const Form = () => {
                 required
                 color="info"
                 variant="outlined"
-                onChange={(e) =>
-                  setFormData({ ...formData, lastName: e.target.value })
-                }
+                {...register("lastName")}
               />
+              {errors?.lastName && (
+                <Typography>{errors.lastName.message}</Typography>
+              )}
             </Grid>
           </Grid>
         </FormControl>
@@ -125,9 +162,11 @@ const Form = () => {
         <TextField
           fullWidth
           required
+          type="email"
           variant="outlined"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          {...register("email")}
         />
+        {errors?.email && <Typography>{errors.email.message}</Typography>}
       </FormControl>
 
       <FormControl>
@@ -145,7 +184,7 @@ const Form = () => {
           fullWidth
           required
           variant="outlined"
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          {...register("phone")}
         />
       </FormControl>
 
@@ -164,26 +203,7 @@ const Form = () => {
           fullWidth
           required
           variant="outlined"
-          onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-        />
-      </FormControl>
-
-      <FormControl>
-        <FormHelperText
-          sx={{
-            fontWeight: 500,
-            margin: "10px",
-            fontSize: 16,
-            color: "#11142d",
-          }}
-        >
-          Skills
-        </FormHelperText>
-        <TextField
-          fullWidth
-          required
-          variant="outlined"
-          onChange={(e) => setFormData({ ...formData, skills: e.target.value })}
+          {...register("city")}
         />
       </FormControl>
 
@@ -198,7 +218,7 @@ const Form = () => {
         >
           Availability
         </FormHelperText>
-        <Select>
+        <Select {...register("availability")}>
           <MenuItem value="monthly">Monthly</MenuItem>
           <MenuItem value="weekly">Weekly</MenuItem>
           <MenuItem value="visits">During Visits</MenuItem>
@@ -220,9 +240,7 @@ const Form = () => {
           fullWidth
           required
           variant="outlined"
-          onChange={(e) =>
-            setFormData({ ...formData, emergencyContact: e.target.value })
-          }
+          {...register("emergencyContact")}
         />
       </FormControl>
 

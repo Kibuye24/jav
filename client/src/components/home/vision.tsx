@@ -2,22 +2,14 @@ import { Box, Typography, Container, Button } from "@mui/material";
 import backgroundImage from "../../assets/gallery.jpg";
 const Vision = () => {
   return (
-    <Box className="flex flex-row flex-wrap justify-evenly space-x-8 py-8 space-y-4 md:space-y-0">
+    <Box className="flex flex-row flex-wrap justify-evenly py-8">
       <Box
         sx={{
-          height: 500,
-          width: 500,
           backgroundImage: `url(${backgroundImage})`,
         }}
-        className="bg-cover bg-center md:w-[500px] w-[90%]"
+        className="bg-cover h-[500px] bg-center md:w-[500px] w-full"
       ></Box>
-      <Box
-        bgcolor="#2BC0E4"
-        sx={{
-          width: 500,
-        }}
-        className="rounded-lg"
-      >
+      <Box bgcolor="#2BC0E4" className="rounded-lg py-3 md:w-[500px]">
         <Typography fontSize={24} fontWeight={700} color="#fcfcfc" p={2}>
           Vision Statement and Objectives.
         </Typography>
@@ -43,8 +35,7 @@ const Vision = () => {
           size="large"
           color="inherit"
           sx={{
-            marginTop: 4,
-            marginLeft: 2,
+            margin: 2,
             color: "#fff",
           }}
         >

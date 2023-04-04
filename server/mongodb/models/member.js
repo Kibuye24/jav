@@ -6,7 +6,7 @@ const MemberSchema = new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   city: { type: String, required: true },
-  skills: { type: Array, required: false },
+  // skills: { type: Array, required: false },
   availability: { type: String, required: false },
   emergencyContact: { type: String, required: false },
 });

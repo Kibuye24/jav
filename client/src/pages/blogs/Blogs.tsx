@@ -1,22 +1,34 @@
-import { Typography, Box, Button } from "@mui/material";
-import blogImage from "../../assets/support.jpg";
+import { Typography, Box, Button, CircularProgress } from "@mui/material";
+import { useState } from "react";
 import PreviewCard from "../../components/blog/PreviewCard";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import Layout from "../../layout/Layout";
 import { Pagination } from "../../components/index";
+import { useSearchParams } from "react-router-dom";
 
 const Blogs = (): JSX.Element => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const response = await Axios.get("http://localhost:8080/api/v1/blogs");
+      const response = await Axios.get(`http://localhost:8080/api/v1/blogs/`);
 
       return response.data;
     },
   });
 
-  if (isLoading) return <Typography align="center">Loading...</Typography>;
+  const handleChange = (event: React.ChangeEvent<unknown>, value: any) => {
+    setSearchParams(value);
+  };
+
+  if (isLoading)
+    return (
+      <Typography align="center" my={40}>
+        <CircularProgress color="primary" size={40} thickness={5} />;
+      </Typography>
+    );
 
   if (error) return error;
   return (
@@ -85,7 +97,11 @@ const Blogs = (): JSX.Element => {
             );
           })}
         </Box>
-        <Pagination />
+        <Pagination
+          totalPages={data.totalPages}
+          pageNumber={data.page}
+          change={handleChange}
+        />
       </Box>
     </Layout>
   );

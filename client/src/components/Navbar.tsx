@@ -1,7 +1,15 @@
-import { Box, Button, Grid, Typography, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Typography,
+  IconButton,
+  Hidden,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import logo from "../assets/logo.jpeg";
+import Hamburger from "./Hamburger";
 
 function Navbar() {
   return (
@@ -27,58 +35,70 @@ function Navbar() {
         className="flex items-center mx-auto sm:hidden"
         sx={{ display: "flex", alignItems: "center", mx: "auto" }}
       >
-        <Button className="mx-4" sx={{ mx: 1 }}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-black font-bold" : "text-white font-bold"
-            }
-          >
-            Home
-          </NavLink>
-        </Button>
-        <Button className="mx-4 text-white">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "text-black font-bold " : "text-white font-bold"
-            }
-          >
-            About Us
-          </NavLink>
-        </Button>
-        <Button className="mx-4">
-          <NavLink
-            to="/blogs"
-            className={({ isActive }) =>
-              isActive ? "text-black font-bold " : "text-white font-bold"
-            }
-          >
-            Blogs
-          </NavLink>
-        </Button>
-        <Button className="mx-4">
-          <NavLink
-            to="/gallery"
-            className={({ isActive }) =>
-              isActive ? "text-black font-bold " : "text-white font-bold"
-            }
-          >
-            Gallery
-          </NavLink>
-        </Button>
-        <Button className="mx-4">
-          <NavLink
-            to="/join"
-            className={({ isActive }) =>
-              isActive ? "text-black font-bold" : "text-white font-bold"
-            }
-          >
-            Join Us
-          </NavLink>
-        </Button>
+        <Hidden only={"xs"}>
+          <Button className="mx-4" sx={{ mx: 1 }}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              Home
+            </NavLink>
+          </Button>
+          <Button className="mx-4 text-white">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              About Us
+            </NavLink>
+          </Button>
+          <Button className="mx-4">
+            <NavLink
+              to="/blogs?page=1"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              Blogs
+            </NavLink>
+          </Button>
+          <Button className="mx-4">
+            <NavLink
+              to="/gallery"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              Gallery
+            </NavLink>
+          </Button>
+          <Button className="mx-4">
+            <NavLink
+              to="/join"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              Join Us
+            </NavLink>
+          </Button>
+        </Hidden>
       </Box>
-      <Grid item sx={{ display: "flex", alingItems: "justify-end" }}>
+      <Grid item sx={{ display: "flex" }}>
         <IconButton href="#" target="_blank">
           <Facebook className="text-blue-600" />
         </IconButton>
@@ -91,6 +111,11 @@ function Navbar() {
         >
           <Instagram className="text-red-600" />
         </IconButton>
+      </Grid>
+      <Grid className="pt-3 ml-20">
+        <Hidden smUp>
+          <Hamburger />
+        </Hidden>
       </Grid>
     </Box>
   );
