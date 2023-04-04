@@ -114,7 +114,7 @@ function Navbar() {
           <Instagram className="text-red-600" />
         </IconButton>
       </Grid>
-      <Grid className="pt-3 ml-20">
+      <Grid className="pt-3 ml-14">
         <Hidden smUp>
           <Hamburger />
         </Hidden>
