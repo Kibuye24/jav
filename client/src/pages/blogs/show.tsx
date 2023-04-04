@@ -12,7 +12,7 @@ const ShowBlog = (): JSX.Element => {
     queryKey: ["singleBlog"],
     queryFn: async () => {
       const response = await Axios.get(
-        `http://localhost:8080/api/v1/blogs/${id}`
+        `https://just-a-vision.onrender.com/api/v1/blogs/${id}`
       );
 
       return response.data;

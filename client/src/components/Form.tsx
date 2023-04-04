@@ -72,7 +72,7 @@ const Form = () => {
   } = useForm<FormValues>({ resolver });
   const onSubmit = handleSubmit((data) => {
     try {
-      Axios.post("http://127.0.0.1:8080/api/v1/members", data, {
+      Axios.post("https://just-a-vision.onrender.com/api/v1/members", data, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },

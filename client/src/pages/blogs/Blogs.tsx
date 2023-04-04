@@ -13,7 +13,9 @@ const Blogs = (): JSX.Element => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const response = await Axios.get(`http://localhost:8080/api/v1/blogs/`);
+      const response = await Axios.get(
+        `https://just-a-vision.onrender.com/api/v1/blogs/`
+      );
 
       return response.data;
     },
