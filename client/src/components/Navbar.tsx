@@ -6,7 +6,7 @@ import {
   IconButton,
   Hidden,
 } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import logo from "../assets/logo.jpeg";
 import Hamburger from "./Hamburger";
@@ -25,11 +25,13 @@ function Navbar() {
       }}
     >
       <Grid item>
-        <img
-          src={logo}
-          alt="logo"
-          className="w-14 h-14 ml-6 object-cover rounded-full"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-14 h-14 ml-6 object-cover rounded-full"
+          />
+        </Link>
       </Grid>
       <Box
         className="flex items-center mx-auto sm:hidden"
