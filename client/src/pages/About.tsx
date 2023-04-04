@@ -110,11 +110,11 @@ const About = () => {
               Board
             </Typography>
             <Grid container spacing={6} alignItems="center">
-              <Grid item xs={12} md={3}>
+              <Grid item xs={6} md={3}>
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Eddy Ratemo
@@ -127,7 +127,7 @@ const About = () => {
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Feizal Barasa
@@ -136,11 +136,11 @@ const About = () => {
                   Community Outreach
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={6} md={3}>
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Hillary Mwangi
@@ -149,11 +149,11 @@ const About = () => {
                   Graphics Design
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={6} md={3}>
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Jean Riuki
@@ -162,11 +162,11 @@ const About = () => {
                   Treasurer
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={6} md={3}>
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Kyambi Mutua
@@ -175,11 +175,11 @@ const About = () => {
                   Social Media
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={6} md={3}>
                 <img
                   src={member1}
                   alt="Member 1"
-                  className="w-48 h-48 rounded-full mb-2"
+                  className="w-36 h-36 md:w-48 md:h-48 rounded-full mb-2"
                 />
                 <Typography variant="subtitle1" align="center">
                   Oscar Aluso

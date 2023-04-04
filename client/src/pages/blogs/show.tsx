@@ -26,10 +26,6 @@ const ShowBlog = (): JSX.Element => {
       </Typography>
     );
 
-  if (error) return error;
-
-  console.log(data);
-
   return (
     <>
       <Navbar />

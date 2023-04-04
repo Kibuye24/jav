@@ -76,7 +76,7 @@ const Form = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-      }).then(navigate("/"));
+      }).then((res) => navigate("/"));
     } catch (err) {
       console.log(err);
     }

@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, IconButton, Typography, Hidden } from "@mui/material";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import logo from "../assets/logo.jpeg";
 import { Link } from "react-router-dom";
@@ -17,20 +17,18 @@ function Footer() {
       <Grid
         container
         alignItems="center"
-        flex={1}
-        sx={{
-          justifyContent: "space-evenly",
-          flexDirection: "row",
-        }}
+        className="flex flex-col md:flex-row justify-evenly flex-wrap"
       >
         {" "}
-        <Grid item>
-          <img
-            src={logo}
-            alt="logo"
-            className="w-24 h-24 object-cover rounded-full"
-          />
-        </Grid>
+        <Hidden smDown>
+          <Grid item>
+            <img
+              src={logo}
+              alt="logo"
+              className="w-24 h-24 object-cover rounded-full"
+            />
+          </Grid>
+        </Hidden>
         <Grid
           item
           sx={{
@@ -38,24 +36,22 @@ function Footer() {
             justifyContent: "space-between",
             flexDirection: "column",
           }}
+          mb={2}
         >
           <Grid>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              fontSize={40}
-              fontWeight={600}
-            >
-              Quick Links
-            </Typography>
+            <Hidden smDown>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                fontSize={40}
+                fontWeight={600}
+              >
+                Quick Links
+              </Typography>
+            </Hidden>
             <Grid
-              flex={1}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 2,
-                alignItems: "center",
-              }}
+              className="flex gap-4"
+              direction={{ md: "column", sm: "row" }}
             >
               <Link to="/" color="inherit" className="text-black no-underline">
                 Home
@@ -76,18 +72,21 @@ function Footer() {
             flexDirection: "column",
           }}
         >
-          <Grid>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              fontSize={40}
-              fontWeight={600}
-              mb={8}
-            >
-              Connect
-            </Typography>
-          </Grid>
-          <Grid item sx={{ display: "flex", alingItems: "justify-end" }}>
+          <Hidden smDown>
+            <Grid>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                fontSize={40}
+                fontWeight={600}
+                mb={8}
+              >
+                Connect
+              </Typography>
+            </Grid>
+          </Hidden>
+
+          <Grid item sx={{ display: "flex", alingItems: "justify-end" }} mb={2}>
             <IconButton href="#" target="_blank">
               <Facebook className="text-blue-600" />
             </IconButton>
@@ -110,7 +109,8 @@ function Footer() {
             textTransform="uppercase"
             fontSize={14}
             color="#252525"
-            sx={{ justifyContent: "center" }}
+            mt={2}
+            ml={6}
           >
             © {currentYear} just a vision
           </Typography>

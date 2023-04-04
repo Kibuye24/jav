@@ -30,7 +30,6 @@ const Blogs = (): JSX.Element => {
       </Typography>
     );
 
-  if (error) return error;
   return (
     <Layout>
       <Box px={10}>
@@ -100,7 +99,7 @@ const Blogs = (): JSX.Element => {
         <Pagination
           totalPages={data.totalPages}
           pageNumber={data.page}
-          change={handleChange}
+          change={() => handleChange}
         />
       </Box>
     </Layout>

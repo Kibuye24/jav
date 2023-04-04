@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Hidden, Typography } from "@mui/material";
 
 interface ObjectivesProps {
   imageSrc: string;
@@ -15,10 +15,12 @@ const Objectives = ({ imageSrc, title, objectives }: ObjectivesProps) => {
         marginLeft: "40px",
       }}
     >
-      <Box sx={{ width: "50%" }}>
-        <img src={imageSrc} alt="Objectives" style={{ maxWidth: "100%" }} />
-      </Box>
-      <Box sx={{ width: "50%", ml: 4 }}>
+      <Hidden smDown>
+        <Box sx={{ width: "50%" }}>
+          <img src={imageSrc} alt="Objectives" style={{ maxWidth: "100%" }} />
+        </Box>
+      </Hidden>
+      <Box className="md:ml-4 md:w-[50%]">
         <Typography variant="h4" sx={{ mb: 2 }}>
           {title}
         </Typography>

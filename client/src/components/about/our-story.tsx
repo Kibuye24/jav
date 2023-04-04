@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Hidden, Typography } from "@mui/material";
 
 interface OurStoryProps {
   imageSrc: string;
@@ -9,10 +9,12 @@ interface OurStoryProps {
 const OurStory = ({ imageSrc, title, text }: OurStoryProps) => {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
-      <Box sx={{ width: "50%" }}>
-        <img src={imageSrc} alt="Our Story" style={{ maxWidth: "100%" }} />
-      </Box>
-      <Box sx={{ width: "50%", ml: 4 }}>
+      <Hidden smDown>
+        <Box className="md:w-[50%]">
+          <img src={imageSrc} alt="Our Story" style={{ maxWidth: "100%" }} />
+        </Box>
+      </Hidden>
+      <Box className="md:ml-4 md:w-[50%]">
         <Typography variant="h4" sx={{ mb: 2 }}>
           {title}
         </Typography>

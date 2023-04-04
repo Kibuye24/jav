@@ -23,7 +23,7 @@ export default function Hamburger() {
 
   return (
     <div>
-      <MenuIcon onClick={handleClick} className="cursor-pointer" />
+      <MenuIcon onClick={() => handleClick} className="cursor-pointer" />
       <Popover
         id={id}
         open={open}
