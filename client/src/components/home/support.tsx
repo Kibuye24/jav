@@ -1,5 +1,6 @@
 import { Box, Typography, Stack, Button } from "@mui/material";
 import backgroundImage from "../../assets/support.jpg";
+import { Link } from "react-router-dom";
 const Support = () => {
   return (
     <Box className="flex flex-row flex-wrap justify-evenly py-8">
@@ -39,7 +40,6 @@ const Support = () => {
         </Typography>
         <Button
           variant="outlined"
-          href="/join"
           size="large"
           color="inherit"
           sx={{
@@ -47,7 +47,7 @@ const Support = () => {
             color: "#fff",
           }}
         >
-          Join Us
+          <Link to="/join">Join Us</Link>
         </Button>
       </Box>
     </Box>

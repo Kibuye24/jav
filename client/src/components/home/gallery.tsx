@@ -1,5 +1,6 @@
 import { Box, Typography, Stack, Button } from "@mui/material";
 import backgroundImage from "../../assets/vision.jpg";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
   return (
@@ -31,7 +32,6 @@ const Gallery = () => {
           </Typography>
           <Button
             variant="outlined"
-            href="/blogs"
             size="large"
             color="inherit"
             sx={{
@@ -40,7 +40,7 @@ const Gallery = () => {
               marginBottom: 4,
             }}
           >
-            Read About Our Impact
+            <Link to="/blogs">Read About Our Impact</Link>
           </Button>
         </Box>
       </Stack>

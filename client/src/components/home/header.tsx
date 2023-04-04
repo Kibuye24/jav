@@ -1,5 +1,6 @@
 import { Box, Typography, Stack, Button } from "@mui/material";
 import backgroundImage from "../../assets/header.jpg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -31,7 +32,6 @@ const Header = () => {
           </Typography>
           <Button
             variant="outlined"
-            href="/about"
             size="large"
             color="inherit"
             sx={{
@@ -40,7 +40,7 @@ const Header = () => {
               marginBottom: 4,
             }}
           >
-            Learn About Us
+            <Link to="/about">Learn About Us</Link>
           </Button>
         </Box>
       </Stack>

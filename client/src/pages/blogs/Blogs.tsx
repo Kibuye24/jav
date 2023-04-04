@@ -75,9 +75,9 @@ const Blogs = (): JSX.Element => {
               temporibus enim commodi iusto libero magni deleniti quod quam
               consequuntur!
             </Typography>
-            <Button variant="contained" color="info">
+            {/* <Button variant="contained" color="info">
               Read more...
-            </Button>
+            </Button> */}
           </Box>
         </Box>
         <Typography variant="h3" align="center" my={4} fontWeight={600}>
@@ -98,11 +98,11 @@ const Blogs = (): JSX.Element => {
             );
           })}
         </Box>
-        <Pagination
+        {/* <Pagination
           totalPages={data.totalPages}
           pageNumber={data.page}
           change={() => handleChange}
-        />
+        /> */}
       </Box>
     </Layout>
   );
