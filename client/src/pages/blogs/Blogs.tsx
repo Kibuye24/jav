@@ -28,7 +28,7 @@ const Blogs = (): JSX.Element => {
   if (isLoading)
     return (
       <Typography align="center" my={40}>
-        <CircularProgress color="primary" size={40} thickness={5} />;
+        <CircularProgress color="primary" size={40} thickness={5} />
       </Typography>
     );
 
@@ -38,42 +38,46 @@ const Blogs = (): JSX.Element => {
         <Typography variant="h1" my={4} gutterBottom>
           Our Blogs
         </Typography>
+        <Typography>Featured Post</Typography>
         <Box
           bgcolor="#fcfcfc"
           width="full"
-          sx={{ display: "flex", flexDirection: "row" }}
           gap={4}
           p={4}
-          className="shadow-lg rounded-lg flex-wrap"
+          className="shadow-lg rounded-lg flex flex-wrap"
         >
           <Box
             sx={{ background: "linear-gradient(to right, #2BC0E4, #20C997)" }}
             width={500}
-          >
-            <Typography>Featured Blog</Typography>
-          </Box>
+          ></Box>
           <Box flex={1}>
-            <Typography>2nd March, 2023</Typography>
+            <Typography>5th April, 2023</Typography>
             <Typography fontWeight={800} fontSize={24} gutterBottom>
               All You need to Know About the Coming Pad Drive
             </Typography>
             <Typography gutterBottom variant="body2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
-              Officiis iure rerum voluptates a cumque velit quibusdam sed amet
-              tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat,
-              temporibus enim commodi iusto libero magni deleniti quod quam
-              consequuntur!
+              Sanitary pads are a necessity for girls, but unfortunately, many
+              girls from low-income families do not have access to them. This
+              leads to them missing school during their menstrual cycle, which
+              can lead to educational setbacks and even dropouts. In an effort
+              to combat this problem, our organization has embarked on a project
+              to donate 1000 sanitary pads to girls in schools. Our vision is to
+              ensure that all girls, regardless of their socioeconomic
+              background, have access to basic hygiene products. We believe that
+              this will help to eliminate the stigma and shame associated with
+              menstruation, and empower girls to take control of their bodies
+              and their education. However, we cannot do this alone. We humbly
+              appeal to individuals and organizations who share our vision to
+              join us in making a difference in the lives of these girls. We are
+              accepting donations of both monetary funds and sanitary pads.
+              Every little bit counts, and your support can help us achieve our
+              goal of empowering these girls to reach their full potential. We
+              are committed to ensuring that every donated pad goes to a girl in
+              need, and we will work tirelessly to ensure that our project is
+              successful. We believe that by working together, we can make a
+              difference in the lives of these girls and create a brighter
+              future for them. Join us in this noble cause and be a part of the
+              change you want to see in the world.
             </Typography>
             {/* <Button variant="contained" color="info">
               Read more...

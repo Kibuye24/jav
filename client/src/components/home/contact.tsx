@@ -18,7 +18,7 @@ const Contact = () => {
           className="rounded-lg shadow-lg md:mx-10 mx-auto mt-10 md:w-[500px] w-[90%] justify-center"
         >
           <Typography fontSize={24} fontWeight={700} color="#fcfcfc" p={2}>
-            We are a social business.
+            You can become a valuable member.
           </Typography>
           <Typography
             fontSize={18}
@@ -27,8 +27,9 @@ const Contact = () => {
             px={2}
             pb={2}
           >
-            Our mission at Just a vission is to improve the lives of vulnerable
-            children in Kenya through home visits and community outreach.
+            Have any ideas that can help us? Are you interested in forming a
+            partnership with us? We would love to hear from you. Contact us
+            Today!
           </Typography>
           <Button
             variant="outlined"
@@ -40,7 +41,7 @@ const Contact = () => {
               marginBottom: 4,
             }}
           >
-            <Link to="/about">Learn About Us</Link>
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </Box>
       </Stack>

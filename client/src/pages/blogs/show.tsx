@@ -37,7 +37,7 @@ const ShowBlog = (): JSX.Element => {
       >
         <Grid
           item
-          direction="column"
+          direction={{ md: "column", xs: "row" }}
           width={4 / 6}
           p={3}
           className="bg-white shadow-lg rounded-lg pd-0 lg:p-8 pb-12 mb-8'"
