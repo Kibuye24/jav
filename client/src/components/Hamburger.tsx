@@ -87,6 +87,16 @@ export default function Hamburger() {
         >
           <Typography px={4}>Join Us</Typography>
         </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-black font-bold underline underline-offset-8"
+              : "text-black font-bold"
+          }
+        >
+          <Typography px={4}>Contact Us</Typography>
+        </NavLink>
       </Popover>
     </div>
   );

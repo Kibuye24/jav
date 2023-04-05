@@ -75,10 +75,22 @@ const Contact = () => {
             Pitch Us
           </Typography>
           <Typography>
-            Hello my name is <span className="text-cyan-400">your name</span>{" "}
-            and my email is <span className="text-cyan-400">your email</span>{" "}
+            Hello my name is{" "}
+            <input
+              className="text-cyan-400 text-md outline-none w-20 bg-inherit placeholder:text-cyan-400 focus-within:w-fit"
+              placeholder="your name"
+            />{" "}
+            and my email is{" "}
+            <input
+              className="text-cyan-400 text-md outline-none w-24 bg-inherit placeholder:text-cyan-400 focus-within:w-fit"
+              placeholder="your@email.com"
+            />{" "}
             and I would like to pitch you{" "}
-            <span className="text-cyan-400">my idea</span>.
+            <textarea
+              className="text-cyan-400 resize-none text-md outline-none w-24 bg-inherit placeholder:text-cyan-400 focus-within:w-fit"
+              placeholder="my idea..."
+              rows={1}
+            />
           </Typography>
           <Button
             sx={{
@@ -89,7 +101,9 @@ const Contact = () => {
             variant="contained"
             size="small"
           >
-            Send
+            <a href="mailto:joshkibbz@gmail.com?body=Hello, my name is ....">
+              Send
+            </a>
           </Button>
         </Grid>
       </Grid>

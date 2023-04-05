@@ -98,6 +98,18 @@ function Navbar() {
               Join Us
             </NavLink>
           </Button>
+          <Button className="mx-4">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold underline underline-offset-8"
+                  : "text-white font-bold"
+              }
+            >
+              Contact
+            </NavLink>
+          </Button>
         </Hidden>
       </Box>
       <Grid item sx={{ display: "flex" }}>
